@@ -1,0 +1,10 @@
+# 註冊到本 org 的 marketplace（<org>/marketplace）。改動 .claude-plugin/plugin.json 並 push 到 main 後清單會自動更新。
+# 不要在本 repo 自帶 .claude-plugin/marketplace.json。
+name: Register to marketplace
+on:
+  push: { branches: [main], paths: ['.claude-plugin/plugin.json'] }
+  workflow_dispatch:
+jobs:
+  notify:
+    uses: pcailug/marketplace/.github/workflows/notify.yml@main
+    secrets: inherit
